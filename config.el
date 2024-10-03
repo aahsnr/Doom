@@ -26,3 +26,45 @@
 (+global-word-wrap-mode +1)
 
 (setq +tree-sitter-hl-enabled-modes t)
+
+(map! :leader
+      :desc "Org babel tangle" "m b b" #'org-babel-tangle)
+
+(after! org
+  (setq org-directory "~/org"
+        org-ellipsis " ▼ "))
+
+(after! org
+  (global-org-modern-mode))
+
+(after! org
+  (require 'org-tempo)
+  (pushnew! org-structure-template-alist
+            '("el" . "src emacs-lisp")))
+
+(remove-hook! '(org-mode-hook text-mode-hook conf-mode-hook vterm-mode-hook)
+  #'display-line-numbers-mode)
+
+(setq doom-modeline-enable-word-count t)
+
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
+      :desc "Open directory in neotree"  "d n" #'neotree-dir)
+
+(after! org
+  (setq org-roam-directory "~/org/roam/"
+        org-roam-graph-viewer "/usr/bin/brave"))
+
+(map! :leader
+      (:prefix ("n r" . "org-roam")
+       :desc "Completion at point" "c" #'completion-at-point
+       :desc "Find node"           "f" #'org-roam-node-find
+       :desc "Show graph"          "g" #'org-roam-graph
+       :desc "Insert node"         "i" #'org-roam-node-insert
+       :desc "Capture to node"     "n" #'org-roam-capture
+       :desc "Toggle roam buffer"  "r" #'org-roam-buffer-toggle))

@@ -51,3 +51,73 @@
 #+begin_src emacs-lisp
 (setq +tree-sitter-hl-enabled-modes t)
 #+end_src
+
+* ORG MODE
+
+#+begin_src emacs-lisp
+(map! :leader
+      :desc "Org babel tangle" "m b b" #'org-babel-tangle)
+
+(after! org
+  (setq org-directory "~/org"
+        org-ellipsis " ▼ "))
+#+end_src
+
+* ORG MODERN
+
+#+begin_src emacs-lisp
+(after! org
+  (global-org-modern-mode))
+#+end_src
+
+* ORG TEMPO
+
+#+begin_src emacs-lisp
+(after! org
+  (require 'org-tempo)
+  (pushnew! org-structure-template-alist
+            '("el" . "src emacs-lisp")))
+#+end_src
+
+* LINE NUMBERS
+
+#+begin_src emacs-lisp
+(remove-hook! '(org-mode-hook text-mode-hook conf-mode-hook vterm-mode-hook)
+  #'display-line-numbers-mode)
+#+end_src
+
+* WRITING
+
+#+begin_src emacs-lisp
+(setq doom-modeline-enable-word-count t)
+#+end_src
+
+* NEOTREE
+
+#+begin_src emacs-lisp
+(after! neotree
+  (setq neo-smart-open t
+        neo-window-fixed-size nil))
+(after! doom-themes
+  (setq doom-neotree-enable-variable-pitch t))
+(map! :leader
+      :desc "Toggle neotree file viewer" "t n" #'neotree-toggle
+      :desc "Open directory in neotree"  "d n" #'neotree-dir)
+#+end_src
+
+* ORG-ROAM
+
+#+begin_src emacs-lisp
+(after! org
+  (setq org-roam-directory "~/org/roam/"
+        org-roam-graph-viewer "/usr/bin/brave"))
+
+(map! :leader
+      (:prefix ("n r" . "org-roam")
+       :desc "Completion at point" "c" #'completion-at-point
+       :desc "Find node"           "f" #'org-roam-node-find
+       :desc "Show graph"          "g" #'org-roam-graph
+       :desc "Insert node"         "i" #'org-roam-node-insert
+       :desc "Capture to node"     "n" #'org-roam-capture
+       :desc "Toggle roam buffer"  "r" #'org-roam-buffer-toggle))
+#+end_src
