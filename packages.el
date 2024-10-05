@@ -48,4 +48,7 @@
 ;; (unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
-(package! org-modern :recipe (:host github :repo "minad/org-modern"))
+;;(package! org-modern :recipe (:host github :repo "minad/org-modern"))
+(package! denote)
+(package! denote-explore)
+(package! denote-menu)

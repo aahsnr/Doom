@@ -47,7 +47,7 @@
        nav-flash         ; blink cursor line after big motions
        neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
-       (popup +defaults)   ; tame sudden yet inevitable temporary windows
+       ;;(popup +defaults)   ; tame sudden yet inevitable temporary windows
        tabs              ; a tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
@@ -107,7 +107,8 @@
        (eval +overlay)     ; run code, run (also, repls)
        lookup              ; navigate your code and its documentation
        (lsp
-        +eglot)
+        +eglot
+        +peek)
        (magit
         +forge)
        ;;make              ; run make tasks from Emacs
@@ -173,7 +174,9 @@
         +brain
         +dragndrop
         +gnuplot
+        +hugo
         +jupyter
+        +noter
         +pandoc
         +pretty)
        ;;php               ; perl's insecure younger brother
