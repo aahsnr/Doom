@@ -1,1 +1,1 @@
-# Minimal Doom Config
+# CONFIG IMPORTED FROM GITLAB
