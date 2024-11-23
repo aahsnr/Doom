@@ -61,6 +61,8 @@
 (after! org
   (setq org-directory "~/org"
         org-ellipsis " ▼ "))
+
+(global-prettify-symbols-mode +1)
 #+end_src
 
 * ORG TEMPO

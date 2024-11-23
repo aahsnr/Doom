@@ -37,6 +37,8 @@
   (setq org-directory "~/org"
         org-ellipsis " ▼ "))
 
+(global-prettify-symbols-mode +1)
+
 (after! org
   (require 'org-tempo)
   (pushnew! org-structure-template-alist
