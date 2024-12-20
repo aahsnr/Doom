@@ -201,7 +201,7 @@
 * DENOTE-EXPLORE
 
 #+begin_src emacs-lisp
-(after! denote
+(use-package! denote-explore
   :custom
   ;; Location of graph files
   (denote-explore-network-directory "~/documents/notes/graphs/")

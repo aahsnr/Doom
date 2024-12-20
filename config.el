@@ -152,7 +152,7 @@
 ;; `context-menu-mode'.
 (add-hook 'context-menu-functions #'denote-context-menu))
 
-(after! denote
+(use-package! denote-explore
   :custom
   ;; Location of graph files
   (denote-explore-network-directory "~/documents/notes/graphs/")
